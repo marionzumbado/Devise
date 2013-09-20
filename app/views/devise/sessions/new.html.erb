@@ -1,5 +1,9 @@
 <h2>Iniciar sesión</h2>
-<%= notice %>
+iujuuu
+	<% flash.each do |name,msg|%>
+		<%= content_tag :div , msg , :id => "flash_#{name}"%>
+	<%end%>
+
 <%= form_for(resource, :as => resource_name, :url => member_session_path()) do |f| %>
   <div><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true %></div>
