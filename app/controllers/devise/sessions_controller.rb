@@ -13,7 +13,7 @@ class Devise::SessionsController < DeviseController
   # POST /resource/sign_in
   def create
     self.resource = warden.authenticate!(auth_options)
-    is_navigational_format? set_flash_message(:notice, :signed_out) : set_flash_message(:notice, :signed_fail)
+    set_flash_message(:notice, :signed_fail) if is_navigational_format? 
     sign_in(resource_name, resource)
     respond_with resource, :location => after_sign_in_path_for(resource)
   end
